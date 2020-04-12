@@ -1,6 +1,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +10,10 @@
         <title>Conference Fees</title>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%
+                    Date d = new Date();
+                String c_year = new SimpleDateFormat("yyyy-MM-dd").format(d);
+        %>
         <script type="text/javascript">
             function check_tchr()
             {
@@ -109,7 +115,8 @@
                             <td><select name="conf_id" id="conf_id"><option value="">Select Conference</option>
                             <%
                                 
-                                PreparedStatement pst = con.prepareStatement("select c.conf_id,c.title from conference c,payment_amount p where c.conf_id<>p.conf_id");
+                                PreparedStatement pst = con.prepareStatement("select DISTINCT(c.conf_id),c.title from conference c,payment_amount p where c.conf_date > ?");
+                                pst.setString(1, c_year);
                                 ResultSet rst = pst.executeQuery();
                                 while(rst.next())
                                 {

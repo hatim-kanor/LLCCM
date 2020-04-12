@@ -236,7 +236,7 @@
                                 </tr>
                             <%
                                 try {
-                                        PreparedStatement v = con.prepareStatement("select c.conf_date,c.title,sl.staff_id,sl.staff_name,cl.c_name from committee_list cl,staff_list sl,conference c where c.conf_date >= '"+c_year+"' and sl.staff_id = cl.staff_id;");
+                                        PreparedStatement v = con.prepareStatement("select c.conf_date,c.title,sl.staff_id,sl.staff_name,cl.c_name from committee_list cl,staff_list sl,conference c where c.conf_date >= SYSDATE() and sl.staff_id = cl.staff_id and cl.conf_id = c.conf_id;");
                                         ResultSet vv = v.executeQuery();
                                         while(vv.next())
                                         {

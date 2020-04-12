@@ -7,12 +7,12 @@
        
    
         <title>Header</title>
-         <%@include file="cssfile.jsp" %>
+         <%@include file="stylesheet/style_sheet.html" %>
     
     </head>
     <body>
     
-        <div class="container-fluid" style="text-align: center;padding:20px;">
+        <div class="container" style="text-align: center;padding:20px;">
            
               
             <span style="font-weight: bold;font-size:20px;margin-top:70px;"><img src="images/logo.png" height="70" width="70">LALA LAJPATRAI COLLEGE OF COMMERCE AND ECONOMICS -- CONFERENCE MANAGEMENT SYSTEM </span>
