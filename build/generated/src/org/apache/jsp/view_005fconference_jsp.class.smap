@@ -1,0 +1,26 @@
+SMAP
+view_005fconference_jsp.java
+JSP
+*S JSP
+*F
++ 0 view_conference.jsp
+view_conference.jsp
++ 1 cssfile.jsp
+cssfile.jsp
++ 2 header.jsp
+header.jsp
+*L
+1,9:51
+1#1,49:60
+9#0,4:108
+1#2,10:112
+1#1,49:122
+10#2,46:170
+12#0,3:215
+15,13:219
+27:232,3
+28,8:236
+35:244
+37:246,2
+38,6:248
+*E

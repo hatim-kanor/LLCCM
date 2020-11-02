@@ -1,0 +1,26 @@
+SMAP
+add_005fgallery_jsp.java
+JSP
+*S JSP
+*F
++ 0 add_gallery.jsp
+add_gallery.jsp
++ 1 admin_left_panel.jsp
+admin_left_panel.jsp
+*L
+1,14:52
+1#1,55:66
+14#0,5:120
+19,3:126
+21,3:129
+24,6:133
+29,2:139
+30,4:141
+33:145
+34:146,3
+35,11:149
+46,7:161
+52:168,8
+53,6:177
+58,103:183
+*E

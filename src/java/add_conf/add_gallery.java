@@ -23,6 +23,7 @@ public class add_gallery extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try {
+                String internal_msg = "";
                 String conf_id = request.getParameter("conf_id");
                  InputStream is1,is2,is3,is4,is5,is6,is7,is8,is9,is10;
             int result = 0,r2=0,r3=0,r4=0,r5=0,r6=0,r7=0,r8=0,r9=0,r10=0;
@@ -45,20 +46,28 @@ public class add_gallery extends HttpServlet {
            if(img1 !=null || img2 !=null || img3 !=null ||img4 !=null ||img5 !=null )
            {
 //               
+                if(img1!=null)
+                {
+                        PreparedStatement pst = con.prepareStatement("insert into gallery(conf_id,img1) values(?,?)");
+                        pst.setString(1, conf_id);
+                        is1 = img1.getInputStream();
+                        pst.setBlob(2, is1);
+
+                        result = pst.executeUpdate();
+                        if(result > 0)
+                        {
+                            internal_msg = "OK";
+                        }
+                }       
+                        if(result > 0 && internal_msg.equals("OK"))
+                        {
+                            PreparedStatement p2 = con.prepareStatement("insert into gallery(conf_id,img1) values(?,?)");
+                            p2.setString(1,conf_id);
+                            is2 = img2.getInputStream();
+                            p2.setBlob(2, is2);
+                            r2 = p2.executeUpdate();
+                        }
                
-               PreparedStatement pst = con.prepareStatement("insert into gallery(conf_id,img1) values(?,?)");
-               pst.setString(1, conf_id);
-               is1 = img1.getInputStream();
-               pst.setBlob(2, is1);
-               
-               result = pst.executeUpdate();
-               if(result > 0 )
-               {
-                   PreparedStatement p2 = con.prepareStatement("insert into gallery(conf_id,img1) values(?,?)");
-                   p2.setString(1,conf_id);
-                   is2 = img2.getInputStream();
-                   p2.setBlob(2, is2);
-                   r2 = p2.executeUpdate();
                    if(r2 > 0)
                    {
                        PreparedStatement p3 = con.prepareStatement("insert into gallery(conf_id,img1) values(?,?)");
@@ -94,7 +103,6 @@ public class add_gallery extends HttpServlet {
                {
                    response.sendRedirect("add_gallery.jsp?msg=fail");
                }
-           }
            }
                 
             } catch (Exception e) {

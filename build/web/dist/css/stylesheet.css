@@ -1,0 +1,56 @@
+.bgt
+{
+    margin-bottom: 50px;
+}
+ .cont
+ {
+     background-color:turquoise;
+ }
+.navbar
+        {
+            background-color:#c9e2b3; 
+            margin:3px;
+            border-radius: 15px;
+        }
+        
+        ul li a
+        {
+            transition: 0.6s ease;
+            font-family:sans-serif;
+            font-weight: bold;
+           
+        }
+        .icon-bar
+        {
+            background-color:black;
+        }
+      
+        .container .navbar-brand
+        {
+            font-size:25px;
+            color:#000;
+        }
+        
+    .nav a:active
+    {
+        background-color:grey;
+        color:#b92c28;
+    }
+   
+/*    read more button*/
+    .row a:hover
+    {
+        background-color: brown;
+        color:white;
+    }
+    .row a
+    {
+        border:1px solid white;
+        text-decoration: none;
+        float:right;
+    }
+    .row .btn
+    {
+        border:1px solid white;
+        float:right;
+    }
